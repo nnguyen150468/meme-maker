@@ -1,0 +1,11 @@
+<h1>All Images here</h1>
+{{#if error}}
+{{error}}
+{{/if}}
+
+
+{{#if images}}
+{{#each images}}
+    <img src="/uploads/originals/{{originalname}}" />
+{{/each}}
+{{/if}}
