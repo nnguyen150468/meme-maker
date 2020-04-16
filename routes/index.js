@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const upload = require('../utils/upload')
-const { loadData } = require('../utils/data')
+const { loadData, saveData } = require('../utils/data')
 const Jimp = require('jimp');
 const path = require('path')
 
@@ -18,28 +18,28 @@ router.get('/browse', (req, res) => {
   return res.render('allImages', {images: data})
 })
 
-router.post('/upload', upload, (req, res) => {
+router.post('/upload', upload, async (req, res) => {
   const file = req.file
   if(!file){
     return res.render('allImages', {error: "No image uploaded"})
   }
 
-  console.log('index.js',`${pathToUpload}/${file.originalname}`)
+  await Jimp.read(file.path)
+  .then(item => {
+      console.log('item',item)
+      return item
+      .resize(400, 300)
+      .quality(60)
+      .greyscale()
+      .write(file.path)
+  })
+  .catch(err => {
+      console.error(err)
+  })
 
-  // Jimp.read(`${pathToUpload}/${file.originalname}`)
-  // .then(item => {
-  //     return item
-  //     .resize(400, 300)
-  //     .quality(60)
-  //     .greyscale()
-  //     .write(file.originalname)
-  // })
-  // .catch(err => {
-  //     console.error(err)
-  // })
   const data = loadData();
-
-  console.log('data index.js',data)
+  data.push(file);
+  saveData(data);
 
   return res.render('allImages', {images: data})
 })

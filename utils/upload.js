@@ -24,8 +24,7 @@ const storage = multer.diskStorage({
           return cb(err, undefined)
       }
 
-      data.push(file);
-      saveData(data);
+
       cb(null, file.originalname)
     }
   })
