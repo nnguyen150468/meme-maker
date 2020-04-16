@@ -24,14 +24,13 @@ router.post('/upload', upload, async (req, res) => {
     return res.render('allImages', {error: "No image uploaded"})
   }
 
-  await Jimp.read(file.path)
+  await Jimp.read(`${pathToUpload}/${file.originalname}`)
   .then(item => {
       console.log('item',item)
       return item
       .resize(400, 300)
       .quality(60)
-      .greyscale()
-      .write(file.path)
+      .write(`${pathToUpload}/${file.originalname}`)
   })
   .catch(err => {
       console.error(err)

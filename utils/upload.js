@@ -1,6 +1,6 @@
 const multer = require('multer')
 const path = require('path')
-const { loadData, saveData } = require('./data')
+const { loadData } = require('./data')
 
 
 const pathToUpload = path.join(__dirname, "../public/uploads/originals")
