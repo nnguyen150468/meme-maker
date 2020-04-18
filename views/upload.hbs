@@ -1,16 +1,20 @@
 <div class="header-container col-12 text-center  text-white mx-auto">
 
 <div class="header">
-    <img class="header-logo p-4 mt-4 col-lg-4 col-sm-6" src="/images/logo-transparent.svg">
+    <img class="header-logo p-4 mt-4 col-lg-4 col-sm-6" src="/images/uploadPage.svg">
 </div>
 
 {{#if error}}
 <h2 class="mt-4">{{error}}</h2>
 {{/if}}
 
-<div style="font-size: 1.2em;">Upload your own picture to create your own meme!</div>
+<div class="my-3 mb-3" style="font-size: 1.2em;">
+    <div>Upload JPG, JPEG, GIF, PNG files only</div>
+    <div>If you upload the same file (same name, same size), the picture will be rejected.</div>
+    <div>You can make memes from our default <a href="/browse">pictures</a> as well</div>
+</div>
 
-<div class="row d-flex align-items-center justify-content-center mt-3">
+<div class="row d-flex align-items-center justify-content-center mt-5">
 <label for="fileUpload" class="custom-file-upload btn btn-danger mr-2">
     Choose File
 </label>
@@ -22,17 +26,8 @@
 
     <button type="submit" class="btn btn-upload">Upload</button>
 
-
-
 </form>
-
 </div>
-
-<div class="my-2" style="font-size: 1.2em;">
-<div>Or you can check out <a href="/browse">our default pictures</a></div> 
-<div>or <a href="/memes">memes made by our users</a></div>
-</div>
-
 
 </div>
 

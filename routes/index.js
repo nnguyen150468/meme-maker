@@ -23,7 +23,7 @@ router.get('/browse', (req, res) => {
 router.post('/upload', upload, async (req, res) => {
   const file = req.file
   if(!file){
-    return res.render('allImages', {error: "No image uploaded"})
+    return res.render('upload', {error: "No image uploaded"})
   }
   
   await Jimp.read(`${pathToUpload}/${file.originalname}`)
@@ -41,13 +41,8 @@ router.post('/upload', upload, async (req, res) => {
   console.log('file in index:',file)
   const data = loadData();
 
-  // const found = data.findIndex(el => el.originalname === file.originalname || el.size === file.size);
-  // if(found !== -1){
-  //   return res.render("index", {error: "File already existed."})
-  // }
-
   if(data.some(item => item.originalname === file.originalname || item.size === file.size)){
-    return res.render("index", {title: "MEMEMAKER",error: "File already existed. Please choose another file."})
+    return res.render("upload", {title: "MEMEMAKER",error: "File already existed. Please choose another file."})
   }
 
   file.id = data.length ===0? 1 : data[0].id + 1
@@ -121,6 +116,9 @@ router.post('/memes', async (req, res) => {
 
 })
 
+router.get('/upload', (req, res) => {
+  res.render('upload', {})
+})
 
 
 module.exports = router;
