@@ -1,9 +1,10 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #0b263d;
+  background-image: linear-gradient(to right, #0b263d, #503b00);
+  /* background-color: #0b263d;
   background-image:  url('../images/pattern2.svg');
   background-repeat: repeat;
-  background-size: 150px;
+  background-size: 150px; */
   height: 100%;
   position: relative;
   min-height: 100vh;
