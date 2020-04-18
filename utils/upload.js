@@ -19,11 +19,12 @@ const storage = multer.diskStorage({
       const data = loadData();
 
       //make sure pictures are not the same
-      if(data.some(item => item.originalname === file.originalname)){
-          let err = new Error("File already existed.")
-          return cb(err, undefined)
-      }
+      // if(data.some(item => item.originalname === file.originalname)){
+      //     let err = new Error("File already existed.")
+      //     return cb(err, undefined)
+      // }
 
+      console.log('file in upload.js',file)
 
       cb(null, file.originalname)
     }

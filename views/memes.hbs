@@ -1,0 +1,19 @@
+
+{{#if memes}}
+
+<div class="container col-10  mx-auto ">
+    <div class="row d-flex justify-content-center">
+        {{#each memes}}
+        
+             <a href="/memes/{{name}}" 
+                name="modal" data-toggle="modal" data-target="#modal{{id}}">
+                <img id="{{id}}" src="/uploads/memes/{{path}}" 
+                    alt="{{name}}" class="m-2" style="max-width: 350px;" />
+        
+        </a>
+
+        {{/each}}
+    </div>
+</div>
+
+{{/if}}

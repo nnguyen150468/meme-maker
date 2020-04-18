@@ -1,11 +1,21 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="header-container col-12 text-center  text-white mx-auto">
+    
+<div class="header">
+    <img class="header-logo p-4 mt-4 col-lg-4 col-sm-6" src="/images/logo-transparent.svg">
+</div>
 
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" 
+{{#if error}}
+<h2 class="mt-4">{{error}}</h2>
+{{/if}}
+
+
+
+<form action="/upload" class="mt-5" method="post" enctype="multipart/form-data">
+    <input type="file"
     accept="image/jpg, image/jpeg, image/png, image/gif"
-    name="fileUpload" />
+    name="fileUpload"  />
 
     <button type="submit">Upload</button>
 
 </form>
+</div>
