@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
       const allows = ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'];
       if(!allows.includes(file.mimetype)){
           let err = new Error("File type not allowed.")
-          return cb(err, undefined)
+          cb(err, undefined)
       }
       const data = loadData();
 

@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 const upload = require('../utils/upload')
 const { loadData, saveData } = require('../utils/data')
+const { loadMemeData, saveMemeData } = require('../utils/memesData')
 const Jimp = require('jimp');
 const path = require('path')
 
-const { loadMemeData, saveMemeData } = require('../utils/memesData')
+
 
 const pathToUpload = path.join(__dirname, "../public/uploads/originals")
 const pathToMemes = path.join(__dirname, "../public/uploads/memes")
@@ -54,8 +55,8 @@ router.post('/upload', upload, async (req, res) => {
 })
 
 
-router.get('/memes', (req, res) => {
-  const dataMeme = loadMemeData();
+router.get('/memes', async (req, res) => {
+  const dataMeme = await loadMemeData();
   return res.render('memes', {memes: dataMeme})
 })
 

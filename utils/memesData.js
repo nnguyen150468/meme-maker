@@ -10,7 +10,7 @@ const loadMemeData = () => {
 }
 
 const saveMemeData = (data) => {
-    return fs.writeFileSync(pathToData, JSON.stringify(data));
+    fs.writeFileSync(pathToData, JSON.stringify(data));
 }
 
 module.exports = { loadMemeData, saveMemeData }

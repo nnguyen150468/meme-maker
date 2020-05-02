@@ -3,6 +3,7 @@ const path = require('path');
 
 const pathToData = path.join(__dirname, '../images.json');
 
+
 const loadData = () => {
     const buffer = fs.readFileSync(pathToData);
     const data = buffer.toString();
@@ -10,7 +11,7 @@ const loadData = () => {
 }
 
 const saveData = (data) => {
-    return fs.writeFileSync(pathToData, JSON.stringify(data));
+    fs.writeFileSync(pathToData, JSON.stringify(data));
 }
 
 module.exports = { loadData, saveData }
