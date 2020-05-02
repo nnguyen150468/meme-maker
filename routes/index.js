@@ -76,7 +76,9 @@ router.post('/memes', async (req, res) => {
   let suffix = time.substring(time.length-4)
   let name = found.originalname.split('.')[0]
 
-  await Jimp.read(found.path)
+
+
+  await Jimp.read(`${pathToUpload}/${found.originalname}`)
     .then(function (image) {
         loadedImage = image;
         
